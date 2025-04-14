@@ -1,7 +1,7 @@
 # Evento
 
 ## Project Overview : 
-This project aims to simplify small-scale event planning—like birthdays, baby showers, and housewarming parties—by using AI to generate creative event ideas and directly connect users with nearby vendors. Users can browse, select, and order items needed for their event, which are then delivered straight to their doorstep. The platform supports local businesses while eliminating the need for professional event planners, making event planning more personal, affordable, and hassle-free.
+This project aims to simplify small-scale event planning—like birthdays, baby showers, and housewarming parties—by using AI to generate creative event ideas. Users can browse, select, and order items needed for their event, which are then delivered straight to their doorstep. The platform supports local businesses while eliminating the need for professional event planners, making event planning more personal, affordable, and hassle-free.
 
 ## Key Features : 
 - Smart suggestions based on user input (e.g. "cozy birthday at home")
