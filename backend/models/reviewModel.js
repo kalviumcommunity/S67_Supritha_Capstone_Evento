@@ -18,7 +18,7 @@ const reviewSchema = new mongoose.Schema({
     },
     reviewer : {
         type : mongoose.Schema.Types.ObjectId, 
-        ref: 'user', 
+        ref: 'Customer', 
         required: true
     },
 }, { timestamps : true });
