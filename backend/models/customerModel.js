@@ -8,7 +8,7 @@ function validatePassword(value) {
   }
 
 const customerSchema = new mongoose.Schema({
-    username : {
+    userName : {
         type : String,
         required : [true, 'Please enter your name']
     },
