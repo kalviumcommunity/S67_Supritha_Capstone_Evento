@@ -2,6 +2,7 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Customer = require('../models/customerModel')
+const authMiddleware = require('../middleware/auth')
 const router = express.Router()
 require('dotenv').config()
 
@@ -45,6 +46,10 @@ router.post('/login', async(req, res) => {
     catch(err){
         res.status(err.status || 500).json({message : err.message || "Error while trying to login. Please try again!"})
     }
+})
+
+router.get('/dashboard', authMiddleware, (req, res) => {
+    res.status(200).json({message  : `Welcome ${req.user.userName}!!`})
 })
 
 module.exports = router
