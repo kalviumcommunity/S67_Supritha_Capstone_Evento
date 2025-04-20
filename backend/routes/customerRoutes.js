@@ -40,7 +40,7 @@ router.post('/login', async(req, res) => {
         if(!isValid)
             return res.status(400).json({message : "Invalid password!"})
 
-        const token = jwt.sign({id : user._id, userName : user.userName}, process.env.SECRET_KEY, {expiresIn : '1h'})
+        const token = jwt.sign({id : user._id, userName : user.userName}, process.env.SECRET_KEY, {expiresIn : '2h'})
         res.status(200).set('Authorization', `Bearer ${token}`).json({message : "Login successful!", token})
     }
     catch(err){
