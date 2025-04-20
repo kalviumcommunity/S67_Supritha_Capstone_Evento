@@ -14,8 +14,8 @@ router.post('/signup', async(req, res) => {
         return res.status(409).json({ message: "Email already in use!" });
 
     try{
-        const hashedP = await bcrypt.hash(password, 10)
-        const newUser = new Customer({userName, email, password : hashedP, profilePic : profilePic || ''})
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const newUser = new Customer({userName, email, password : hashedPassword, profilePic : profilePic || ''})
         await newUser.save()
 
         const token = jwt.sign({id : newUser._id, userName : newUser.userName}, process.env.SECRET_KEY, {expiresIn : '1h'})
