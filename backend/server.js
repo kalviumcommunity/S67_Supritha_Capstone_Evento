@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.send("Welcome to the Home Page")
 })
 
-app.get('/customer', customerRoute)
+app.use('/customer', customerRoute)
 
 app.listen(PORT, () => {
     console.log(`The server is successfully running on http://localhost:${PORT}`)
