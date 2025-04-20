@@ -26,25 +26,25 @@ router.post('/signup', async(req, res) => {
     }
 })
 
-// router.post('/login', async(req, res) => {   
-//     const {email, password} = req.body
-//     if(!email || !password)
-//         return res.status(400).json({message : "Please fill all the required fields!"})
-//     try{
-//         const user = await Customer.findOne({email})
-//         if(!user)
-//             return res.status(404).json({message : "User not found!"})
+router.post('/login', async(req, res) => {   
+    const {email, password} = req.body
+    if(!email || !password)
+        return res.status(400).json({message : "Please fill all the required fields!"})
+    try{
+        const user = await Customer.findOne({email})
+        if(!user)
+            return res.status(404).json({message : "User not found!"})
 
-//         const isValid = await bcrypt.compare(password, user.password)
-//         if(!isValid)
-//             return res.status(400).json({message : "Invalid password!"})
+        const isValid = await bcrypt.compare(password, user.password)
+        if(!isValid)
+            return res.status(400).json({message : "Invalid password!"})
 
-//         const token = jwt.sign({id : user._id, userName : user.userName}, process.env.SECRET_KEY, {expiresIn : '1h'})
-//         res.status(200).set('Authorization', `Bearer ${token}`).json({message : "Login successful!", token})
-//     }
-//     catch(err){
-//         res.status(err.status || 500).json({message : err.message || "Error while trying to login. Please try again!"})
-//     }
-// })
+        const token = jwt.sign({id : user._id, userName : user.userName}, process.env.SECRET_KEY, {expiresIn : '1h'})
+        res.status(200).set('Authorization', `Bearer ${token}`).json({message : "Login successful!", token})
+    }
+    catch(err){
+        res.status(err.status || 500).json({message : err.message || "Error while trying to login. Please try again!"})
+    }
+})
 
 module.exports = router
